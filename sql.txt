@@ -1,0 +1,29 @@
+DROP DATABASE `member`;
+
+CREATE DATABASE `memsite`;
+
+SHOW databases;
+
+USE `memsite`;
+
+CREATE TABLE `member` (
+`idx` int UNSIGNED NOT NULL AUTO_INCREMENT,
+`id` varchar(100) DEFAULT '',
+`name` varchar(100) DEFAULT '',
+`email` varchar(100) DEFAULT '',
+`password` varchar(100) DEFAULT '',
+`zipcod` char(5) default'',
+`addr1` varchar(255) DEFAULT '',
+`addr2` varchar(255) DEFAULT '',
+`photo` varchar(100) DEFAULT '',
+`create_at` datetime, 
+`ip` varchar(20) DEFAULT '',
+PRIMARY KEY(`idx`),
+UNIQUE INDEX `id` (`id`) USING btree
+);
+
+SHOW tables;
+
+SELECT * FROM MEMBER;
+
+INSERT INTO member(`id`,`name`,`email`) VALUES ('user11', '유저1','user11@abc.com');
