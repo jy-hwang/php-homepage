@@ -4,6 +4,8 @@ if(!isset($_POST['chk']) or $_POST['chk'] != 1){
 //die("<script>  alert('약관 등을 동의 하시고 접근하시기 바랍니다.');  self.location.href='./stipulation.php'</script>");
 }
 
+$js_array = ['js/member_input.js'];
+
 include 'inc_header.php';
 
 ?>
@@ -15,7 +17,7 @@ include 'inc_header.php';
       <label for="f_id" class="form-label">아이디</label>
       <input type="text" class="form-control" name="" id="f_id" placeholder="아이디를 입력해주세요">
     </div>
-    <button class="btn btn-secondary">아이디 중복확인</button>
+    <button class="btn btn-secondary" id="btn_id_check">아이디 중복확인</button>
   </div>
 
   <div class="form-group mt-3 d-flex gap-2 justify-content-between">

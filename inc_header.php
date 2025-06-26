@@ -13,7 +13,15 @@
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
       crossorigin="anonymous"></script>
-    <script src="js/member.js?v=<?php echo date('YmdHis');?>"></script>
+
+<?php
+if(isset($js_array)){
+  foreach($js_array AS $var){
+    echo '<script src="'.$var.'?v='. date('YmdHis') .'"></script>'.PHP_EOL;
+  }
+}
+?>
+    
   </head>
   <body>
     <div class="container">
