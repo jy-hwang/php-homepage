@@ -8,17 +8,28 @@ document.addEventListener("DOMContentLoaded", () => {
       alert("아이디를 입력해 주세요");
       return;
     }
-    alert(f_id.value);
 
     // AJAX
     const f1 = new FormData();
-    f1.append("abcd_id", f_id.value);
-    f1.append("abcd_mode", "id_chk");
-    console.log(f1);
+    f1.append("id", f_id.value);
+    f1.append("mode", "id_chk");
     const xhr = new XMLHttpRequest();
-    xhr.open("POST", "./pg/member_process.php", "true");
-    xhr.send();
+    xhr.open("POST", "./pg/member_process.php", true);
+    xhr.send(f1);
 
-    xhr.onload = () => {};
+    xhr.onload = () => {
+      if (xhr.status == 200) {
+        const data = JSON.parse(xhr.responseText);
+        if (data.result == "success") {
+          alert("사용이 가능한 아이디 입니다.");
+          document.input_form.id_chk.value = "1";
+        } else if (data.result == "fail") {
+          document.input_form.id_chk.value = "0";
+          alert("이미 사용중인 아이디 입니다. \n 다른 아이디를 입력해주세요.");
+          f_id.value = "";
+          f_id.focus();
+        }
+      }
+    };
   });
 });
