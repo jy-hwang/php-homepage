@@ -7,9 +7,6 @@ $dbUser = $config['db_user'];
 $dbPassword = $config['db_pass'];
 $dbName = $config['db_database'];
 
-
-
-
 try{
   
   $db = new PDO("mysql:host={$serverName};port={$serverPort};dbname={$dbName}",$dbUser, $dbPassword);
@@ -23,7 +20,6 @@ try{
   // PDO 객체가 에러를 처리하는 방식
   $db -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-  echo "DB 연결 성공";
 } catch(PDOException $e){
   
   echo $e -> getMessage();
