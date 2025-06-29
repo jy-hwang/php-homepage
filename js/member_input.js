@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (f_id.value === "") {
       alert("아이디를 입력해 주세요");
+      f_id.focus();
       return;
     }
 
@@ -21,15 +22,59 @@ document.addEventListener("DOMContentLoaded", () => {
     xhr.onload = () => {
       if (xhr.status == 200) {
         const data = JSON.parse(xhr.responseText);
-        console.log(data);
         if (data.result == "success") {
           alert("사용이 가능한 아이디 입니다.");
           document.input_form.id_chk.value = "1";
         } else if (data.result == "fail") {
           document.input_form.id_chk.value = "0";
-          alert("이미 사용중인 아이디 입니다. \n 다른 아이디를 입력해주세요.");
+          alert("이미 사용중인 아이디 입니다. \n다른 아이디를 입력해주세요.");
           f_id.value = "";
           f_id.focus();
+        } else if (data.result == "empty_id") {
+          alert("아이디가 비어있습니다. \n아이디를 입력해주세요.");
+          f_id.value = "";
+          f_id.focus();
+        }
+      }
+    };
+  });
+
+  // 이메일 중복검사
+  const btn_email_check = document.querySelector("#btn_email_check");
+
+  btn_email_check.addEventListener("click", () => {
+    let f_email = document.querySelector("#f_email");
+
+    if (f_email.value === "") {
+      alert("이메일을 입력해 주세요");
+      f_email.focus();
+      return;
+    }
+
+    // AJAX
+    const f1 = new FormData();
+    f1.append("email", f_email.value);
+    f1.append("mode", "email_chk");
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", "./pg/member_process.php", true);
+    xhr.send(f1);
+
+    xhr.onload = () => {
+      if (xhr.status == 200) {
+        const data = JSON.parse(xhr.responseText);
+        if (data.result == "success") {
+          alert("사용이 가능한 이메일 입니다.");
+          document.input_form.email_chk.value = "1";
+        } else if (data.result == "fail") {
+          document.input_form.email_chk.value = "0";
+          alert("이미 사용중인 이메일 입니다. \n다른 이메일을 입력해주세요.");
+          f_email.value = "";
+          f_email.focus();
+        } else if (data.result == "empty_email") {
+          document.input_form.email_chk.value = "0";
+          alert("이메일이 비어있습니다. \n이메일를 입력해주세요.");
+          f_email.value = "";
+          f_email.focus();
         }
       }
     };
@@ -71,6 +116,19 @@ document.addEventListener("DOMContentLoaded", () => {
       frm.f_password.value = "";
       frm.f_password2.value = "";
       frm.f_password.focus();
+      return false;
+    }
+
+    // 이메일 입력확인
+    if (frm.f_email.value == "") {
+      alert("이메일을 입력해주세요");
+      frm.f_email.focus();
+      return false;
+    }
+
+    // 이메일 중복 검사 여부 확인
+    if (frm.email_chk.value === "0") {
+      alert("이메일 중복확인을 해주시기 바랍니다.");
       return false;
     }
   });

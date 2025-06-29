@@ -3,11 +3,20 @@
 include 'inc/db_config.php';
 include 'inc/member.php';
 
-$id = 'user12';
+// $id = 'user12';
+
+// $mem = new Member($db);
+// if($mem->id_exists($id)){
+//   echo "아이디가 중복됩니다.";
+// } else {
+//   echo "사용할 수 있는 아이디 입니다.";
+// }
+
+$email = 'user12@abc.com';
 
 $mem = new Member($db);
-if($mem->id_exists($id)){
-  echo "아이디가 중복됩니다.";
+if($mem->email_exists($email)){
+  echo "이메일이 중복됩니다.";
 } else {
-  echo "사용할 수 있는 아이디 입니다.";
+  echo "사용할 수 있는 이메일 입니다.";
 }

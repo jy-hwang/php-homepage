@@ -12,9 +12,10 @@ include 'inc_header.php';
 
 <main class="w-50 mx-auto border rounded-5 p-5">
   <h1 class="text-center">회원가입</h1>
-  <form name="input_form" method="post" enctype="multipart/form-data" action="pg/member_process.php">
+  <form name="input_form" method="post" enctype="multipart/form-data" autocomplete="off" action="pg/member_process.php">
     <input type="hidden" name="mode" value="input">
     <input type="hidden" name="id_chk" value="0">
+    <input type="hidden" name="email_chk" value="0">
     <div class="form-group d-flex gap-2 align-items-end">
       <div>
         <label for="f_id" class="form-label">아이디</label>
@@ -38,9 +39,9 @@ include 'inc_header.php';
     <div class="form-group d-flex gap-2 align-items-end">
       <div class="flex-grow-1">
         <label for="f_email" class="form-label">이메일</label>
-        <input type="email" class="form-control" name="" id="f_email" placeholder="이메일을 입력해주세요">
+        <input type="email" class="form-control" name="f_email" id="f_email" placeholder="이메일을 입력해주세요">
       </div>
-      <button type="button" class="btn btn-secondary">이메일 중복확인</button>
+      <button type="button" class="btn btn-secondary" id="btn_email_check">이메일 중복확인</button>
     </div>
 
     <div class="d-flex mt-3 gap-2 align-items-end">
