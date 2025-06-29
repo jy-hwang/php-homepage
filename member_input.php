@@ -18,20 +18,20 @@ include 'inc_header.php';
     <div class="form-group d-flex gap-2 align-items-end">
       <div>
         <label for="f_id" class="form-label">아이디</label>
-        <input type="text" class="form-control" name="" id="f_id" placeholder="아이디를 입력해주세요">
+        <input type="text" class="form-control" name="f_id" id="f_id" placeholder="아이디를 입력해주세요">
       </div>
-      <button class="btn btn-secondary" id="btn_id_check">아이디 중복확인</button>
+      <button type="button" class="btn btn-secondary" id="btn_id_check">아이디 중복확인</button>
     </div>
 
     <div class="form-group mt-3 d-flex gap-2 justify-content-between">
       <div class="w-50">
         <label for="f_password" class="form-label">비밀번호</label>
-        <input type="password" class="form-control" name="" id="f_password" placeholder="비밀번호를 입력해주세요">
+        <input type="password" class="form-control" name="f_password" id="f_password" placeholder="비밀번호를 입력해주세요">
       </div>
 
       <div class="w-50">
         <label for="f_password2" class="form-label">비밀번호 확인</label>
-        <input type="password" class="form-control" name="" id="f_password2" placeholder="비밀번호를 입력해주세요">
+        <input type="password" class="form-control" name="f_password2" id="f_password2" placeholder="비밀번호를 입력해주세요">
       </div>
     </div>
 
@@ -40,7 +40,7 @@ include 'inc_header.php';
         <label for="f_email" class="form-label">이메일</label>
         <input type="email" class="form-control" name="" id="f_email" placeholder="이메일을 입력해주세요">
       </div>
-      <button class="btn btn-secondary">이메일 중복확인</button>
+      <button type="button" class="btn btn-secondary">이메일 중복확인</button>
     </div>
 
     <div class="d-flex mt-3 gap-2 align-items-end">
@@ -48,7 +48,7 @@ include 'inc_header.php';
         <label for="f_zipcode" class="form-label" >우편번호</label>
         <input type="text" class="form-control" name="zipcode" id="zipcode" minlength="5" maxlength="5">
       </div>
-      <button class="btn btn-secondary">우편번호찾기</button>
+      <button type="button" class="btn btn-secondary">우편번호찾기</button>
     </div>
 
     <div class="form-group mt-3 d-flex gap-2 justify-content-between">
@@ -72,8 +72,8 @@ include 'inc_header.php';
     </div>
 
     <div class="mt-3 d-flex gap-2">
-      <button class="btn btn-primary flex-grow-1">가입확인</button>
-      <button class="btn btn-secondary flex-grow-1">가입취소</button>
+      <button type="button" class="btn btn-primary flex-grow-1" id="btn_submit">가입확인</button>
+      <button type="button" class="btn btn-secondary flex-grow-1">가입취소</button>
     </div>
   </form>
 </main>
