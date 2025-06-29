@@ -10,6 +10,8 @@ include 'inc_header.php';
 
 ?>
 
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
 <main class="w-50 mx-auto border rounded-5 p-5">
   <h1 class="text-center">회원가입</h1>
   <form name="input_form" method="post" enctype="multipart/form-data" autocomplete="off" action="pg/member_process.php">
@@ -47,9 +49,9 @@ include 'inc_header.php';
     <div class="d-flex mt-3 gap-2 align-items-end">
       <div class="">
         <label for="f_zipcode" class="form-label" >우편번호</label>
-        <input type="text" class="form-control" name="zipcode" id="zipcode" minlength="5" maxlength="5">
+        <input type="text" class="form-control" name="f_zipcode" id="f_zipcode" minlength="5" maxlength="5">
       </div>
-      <button type="button" class="btn btn-secondary">우편번호찾기</button>
+      <button type="button" class="btn btn-secondary" id="btn_zipcode">우편번호찾기</button>
     </div>
 
     <div class="form-group mt-3 d-flex gap-2 justify-content-between">
