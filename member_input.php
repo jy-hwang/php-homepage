@@ -71,7 +71,7 @@ include 'inc_header.php';
         <label for="f_photo" class="form-label">프로필 이미지</label>
         <input type="file" class="form-control" name="photo" id="f_photo">
       </div>
-      <img src="images/person.jpg" class="w-25" alt="profile image" srcset="">
+      <img src="images/person.jpg" class="w-25" id="f_preview" alt="profile image" srcset="">
     </div>
 
     <div class="mt-3 d-flex gap-2">
