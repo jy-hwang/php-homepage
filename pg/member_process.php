@@ -44,14 +44,21 @@ if($_POST['mode'] == 'id_chk'){
   }
 } else if($_POST['mode'] == 'input'){
 
+// Profile Image 처리
+$tempArray = explode('.', $_FILES['photo']['name']);
+$ext = end($tempArray);
+$photo = $id .'.'. $ext;
+
+copy($_FILES['photo']['tmp_name'], "../data/profile/". $photo);
   $arr =[
-    'id' => $id,
-    'name' => $name,
+    'id'       => $id,
+    'name'     => $name,
     'password' => $password,
-    'email' => $email,
-    'zipcode' => $zipcode,
-    'addr1' => $addr1,
-    'addr2' => $addr2,
+    'email'    => $email,
+    'zipcode'  => $zipcode,
+    'addr1'    => $addr1,
+    'addr2'    => $addr2,
+    'photo'    => $photo
   ];
 
 $mem -> input($arr);
