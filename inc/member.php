@@ -29,4 +29,9 @@ class Member {
 
     return $stmt -> rowCount() ?  true : false;
    }
+
+   // 회원정보 입력
+   public function input($marray){
+    var_dump($marray);
+   }
 }

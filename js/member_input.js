@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // AJAX
     const f1 = new FormData();
-    f1.append("id", f_id.value);
+    f1.append("f_id", f_id.value);
     f1.append("mode", "id_chk");
     const xhr = new XMLHttpRequest();
     xhr.open("POST", "./pg/member_process.php", true);
@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // AJAX
     const f1 = new FormData();
-    f1.append("email", f_email.value);
+    f1.append("f_email", f_email.value);
     f1.append("mode", "email_chk");
     const xhr = new XMLHttpRequest();
     xhr.open("POST", "./pg/member_process.php", true);
@@ -94,6 +94,13 @@ document.addEventListener("DOMContentLoaded", () => {
     // 아이디 중복 검사 여부 확인
     if (frm.id_chk.value === "0") {
       alert("아이디 중복확인을 해주시기 바랍니다.");
+      return false;
+    }
+
+    // 이름 입력 확인
+    if (frm.f_name.value == "") {
+      alert("이름을 입력해주세요");
+      frm.f_name.focus();
       return false;
     }
 

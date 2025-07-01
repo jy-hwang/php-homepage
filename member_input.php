@@ -28,6 +28,13 @@ include 'inc_header.php';
       <button type="button" class="btn btn-secondary" id="btn_id_check">아이디 중복확인</button>
     </div>
 
+    <div class="form-group mt-3 d-flex gap-2 align-items-end">
+      <div>
+        <label for="f_name" class="form-label">이름</label>
+        <input type="text" class="form-control" name="f_name" id="f_name" placeholder="이름을 입력해주세요">
+      </div>
+    </div>
+
     <div class="form-group mt-3 d-flex gap-2 justify-content-between">
       <div class="w-50">
         <label for="f_password" class="form-label">비밀번호</label>
@@ -40,7 +47,7 @@ include 'inc_header.php';
       </div>
     </div>
 
-    <div class="form-group d-flex gap-2 align-items-end">
+    <div class="form-group mt-3 d-flex gap-2 align-items-end">
       <div class="flex-grow-1">
         <label for="f_email" class="form-label">이메일</label>
         <input type="email" class="form-control" name="f_email" id="f_email" placeholder="이메일을 입력해주세요">
@@ -59,12 +66,12 @@ include 'inc_header.php';
     <div class="form-group mt-3 d-flex gap-2 justify-content-between">
       <div class="w-50">
         <label for="f_addr1" class="form-label">주소</label>
-        <input type="text" class="form-control" name="" id="f_addr1" placeholder="">
+        <input type="text" class="form-control" name="f_addr1" id="f_addr1" placeholder="">
       </div>
 
       <div class="w-50">
         <label for="f_addr2" class="form-label">상세 주소</label>
-        <input type="text" class="form-control" name="" id="f_addr2" placeholder="상세주소를 입력해주세요">
+        <input type="text" class="form-control" name="f_addr2" id="f_addr2" placeholder="상세주소를 입력해주세요">
       </div>
     </div>
 
