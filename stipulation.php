@@ -1,6 +1,8 @@
 <?php
 $js_array = ['js/stipulation.js'];
 
+$g_title = "약관";
+
 include 'inc_header.php'; ?>
 
 <main class="p-5 border rounded-5">
