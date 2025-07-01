@@ -49,7 +49,7 @@ include 'inc_header.php';
     <div class="d-flex mt-3 gap-2 align-items-end">
       <div class="">
         <label for="f_zipcode" class="form-label" >우편번호</label>
-        <input type="text" class="form-control" name="f_zipcode" id="f_zipcode" minlength="5" maxlength="5">
+        <input type="text" class="form-control" name="f_zipcode" id="f_zipcode" minlength="5" maxlength="5" readonly>
       </div>
       <button type="button" class="btn btn-secondary" id="btn_zipcode">우편번호찾기</button>
     </div>

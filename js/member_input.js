@@ -131,6 +131,21 @@ document.addEventListener("DOMContentLoaded", () => {
       alert("이메일 중복확인을 해주시기 바랍니다.");
       return false;
     }
+
+    //우편번호 && 주소1 입력 확인
+    if (frm.f_zipcode.value == "" || frm.f_addr1 == "") {
+      alert("우편번호 검색을 해주세요");
+      return false;
+    }
+
+    // 상세 주소 입력 확인
+    if (frm.f_addr2.value == "") {
+      alert("상세주소를 입력해주세요");
+      frm.f_addr2.focus();
+      return false;
+    }
+
+    frm.submit();
   });
 
   // 우편번호 찾기
