@@ -7,6 +7,7 @@ if(!isset($_POST['chk']) or $_POST['chk'] != 1){
 $js_array = ['js/member_input.js'];
 $menu_code = 'member';
 $g_title="회원가입";
+$current_step = 2;
 
 include 'inc_header.php';
 
@@ -14,7 +15,8 @@ include 'inc_header.php';
 
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 
-<main class="w-50 mx-auto border rounded-5 p-5">
+<main class="w-75 mx-auto border rounded-5 p-5">
+  <?php include 'member_stepper.php'; ?>
   <h1 class="text-center">회원가입</h1>
   <form name="input_form" method="post" enctype="multipart/form-data" autocomplete="off" action="pg/member_process.php">
     <input type="hidden" name="mode" value="input">

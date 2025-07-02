@@ -1,11 +1,14 @@
 <?php
+
 $js_array = ['js/stipulation.js'];
 $menu_code = 'member';
 $g_title = "약관";
+$current_step = 1;
 
 include 'inc_header.php'; ?>
 
 <main class="p-5 border rounded-5">
+  <?php include 'member_stepper.php'; ?>
   <h1 class="text-center">회원 약관 및 개인정보 취급방침 동의</h1>
   <h4>회원약관</h4>
   <textarea name="" id="" cols="30" rows="10" class="form-control">
