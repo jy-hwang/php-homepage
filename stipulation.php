@@ -1,6 +1,6 @@
 <?php
 $js_array = ['js/stipulation.js'];
-
+$menu_code = 'member';
 $g_title = "약관";
 
 include 'inc_header.php'; ?>

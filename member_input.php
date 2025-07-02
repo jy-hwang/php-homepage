@@ -5,7 +5,7 @@ if(!isset($_POST['chk']) or $_POST['chk'] != 1){
 }
 
 $js_array = ['js/member_input.js'];
-
+$menu_code = 'member';
 $g_title="회원가입";
 
 include 'inc_header.php';
