@@ -41,7 +41,7 @@ if($_POST['mode'] == 'id_chk'){
   if($mem-> email_format_check($email) === false){
     die(json_encode(['result' => 'email_format_wrong']));
   };
-  
+
   if($mem->email_exists($email)){
     die(json_encode(['result' => 'fail']));
   } else {
@@ -68,4 +68,9 @@ copy($_FILES['photo']['tmp_name'], "../data/profile/". $photo);
 
 $mem -> input($arr);
 
+echo "
+<script>
+  self.location.href='../member_success.php'
+</script>
+";
 }
