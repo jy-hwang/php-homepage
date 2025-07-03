@@ -49,12 +49,16 @@ if($_POST['mode'] == 'id_chk'){
   }
 } else if($_POST['mode'] == 'input'){
 
-// Profile Image 처리
-$tempArray = explode('.', $_FILES['photo']['name']);
-$ext = end($tempArray);
-$photo = $id .'.'. $ext;
+  // Profile Image 처리
+  $photo = '';
+  if($_FILES['photo']['name']){
+    $tempArray = explode('.', $_FILES['photo']['name']);
+    $ext = end($tempArray);
+    $photo = $id .'.'. $ext;
+    
+    copy($_FILES['photo']['tmp_name'], "../data/profile/". $photo);
+  }
 
-copy($_FILES['photo']['tmp_name'], "../data/profile/". $photo);
   $arr =[
     'id'       => $id,
     'name'     => $name,
