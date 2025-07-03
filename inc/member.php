@@ -57,4 +57,16 @@ public function email_format_check($m_email){
     $stmt -> bindParam(':ip'      , $_SERVER['REMOTE_ADDR']);
     $stmt -> execute();
   }
+
+  //로그인
+  public function login($id, $pw){
+    $sql = " SELECT * FROM member WHERE id=:id AND password=:pw ";
+
+    $stmt = $this -> conn -> prepare($sql);
+    $stmt -> bindParam(':id' , $id);
+    $stmt -> bindParam(':pw' , $pw);
+    $stmt -> execute();
+
+    return $stmt -> rowCount() ?  true : false;
+  }
 }
