@@ -41,6 +41,9 @@ public function email_format_check($m_email){
 
    // 회원정보 입력
   public function input($marray){
+    // 단방향 암호화
+    $new_hash_password = password_hash($marray['password'], PASSWORD_DEFAULT);
+
     $sql = " INSERT
                INTO member (id, name, password, email, zipcode, addr1, addr2, photo, create_at, ip)
              VALUES (:id, :name, :password, :email, :zipcode, :addr1, :addr2, :photo, NOW(), :ip) ";
@@ -48,7 +51,7 @@ public function email_format_check($m_email){
     $stmt = $this -> conn -> prepare($sql);
     $stmt -> bindParam(':id'      , $marray['id']);
     $stmt -> bindParam(':name'    , $marray['name']);
-    $stmt -> bindParam(':password', $marray['password']);
+    $stmt -> bindParam(':password', $new_hash_password);
     $stmt -> bindParam(':email'   , $marray['email']);
     $stmt -> bindParam(':zipcode' , $marray['zipcode']);
     $stmt -> bindParam(':addr1'   , $marray['addr1']);
@@ -60,13 +63,21 @@ public function email_format_check($m_email){
 
   //로그인
   public function login($id, $pw){
-    $sql = " SELECT * FROM member WHERE id=:id AND password=:pw ";
-
+    $sql = " SELECT password FROM member WHERE id = :id ";
+    
     $stmt = $this -> conn -> prepare($sql);
     $stmt -> bindParam(':id' , $id);
-    $stmt -> bindParam(':pw' , $pw);
     $stmt -> execute();
 
-    return $stmt -> rowCount() ?  true : false;
+    if($stmt -> rowCount()){
+      $row = $stmt -> fetch();
+      if(password_verify($pw, $row['password'])){
+        return true;
+      } else {
+        return false;
+      }
+    } else {
+      return false;
+    }
   }
 }
