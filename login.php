@@ -1,5 +1,5 @@
 <?php
-$js_array = ['js/member_login.js'];
+$js_array = ['js/member_login.js', 'js/secure_function.js'];
 $g_title ="로그인";
 $menu_code="login";
 include 'inc_header.php';

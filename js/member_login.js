@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const btn_login = document.querySelector("#btn_login");
 
-  btn_login.addEventListener("click", () => {
+  btn_login.addEventListener("click", async () => {
     const f_id = document.querySelector("#f_id");
     if (f_id.value == "") {
       alert("아이디를 입력해주세요");
@@ -15,6 +15,9 @@ document.addEventListener("DOMContentLoaded", () => {
       f_pw.focus();
       return false;
     }
+
+    // 암호화 추가
+    f_pw.value = await hashPassword(f_pw.value);
 
     // AJAX
     const f1 = new FormData();

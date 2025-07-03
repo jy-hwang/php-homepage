@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 가입확인 버튼 클릭시
   const btn_submit = document.querySelector("#btn_submit");
-  btn_submit.addEventListener("click", () => {
+  btn_submit.addEventListener("click", async () => {
     // 아이디 입력 확인
     const frm = document.input_form;
     if (frm.f_id.value == "") {
@@ -157,6 +157,9 @@ document.addEventListener("DOMContentLoaded", () => {
       return false;
     }
 
+    // 암호화 추가
+    frm.f_password.value = await hashPassword(frm.f_password.value);
+    frm.f_password2.value = await hashPassword(frm.f_password2.value);
     frm.submit();
   });
 
@@ -208,11 +211,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const reader = new FileReader();
     reader.readAsDataURL(event.target.files[0]);
     reader.onload = function (e) {
-      // console.log(e);
-      // const imgEl = document.createElement("img");
-      // imgEl.setAttribute("src", e.target.result);
-      // document.querySelector("#f_preview").appendChild(imgEl);
-
       const f_preview = document.querySelector("#f_preview");
       f_preview.setAttribute("src", e.target.result);
     };
