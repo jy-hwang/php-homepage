@@ -1,4 +1,6 @@
 <?php
+session_start();
+$ses_id = (isset($_SESSION['ses_id']) &&  $_SESSION['ses_id'] != '') ? $_SESSION['ses_id'] :"";
 
 if(!isset($_POST['chk']) or $_POST['chk'] != 1){
 //die("<script>  alert('약관 등을 동의 하시고 접근하시기 바랍니다.');  self.location.href='./stipulation.php'</script>");

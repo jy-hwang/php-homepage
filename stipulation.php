@@ -1,4 +1,6 @@
 <?php
+session_start();
+$ses_id = (isset($_SESSION['ses_id']) &&  $_SESSION['ses_id'] != '') ? $_SESSION['ses_id'] :"";
 
 $js_array = ['js/stipulation.js'];
 $menu_code = 'member';

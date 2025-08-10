@@ -1,4 +1,7 @@
 <?php
+session_start();
+$ses_id = (isset($_SESSION['ses_id']) &&  $_SESSION['ses_id'] != '') ? $_SESSION['ses_id'] :"";
+
 $js_array = ['js/member_login.js', 'js/secure_function.js'];
 $g_title ="로그인";
 $menu_code="login";
