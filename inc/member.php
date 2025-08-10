@@ -72,6 +72,12 @@ public function email_format_check($m_email){
     if($stmt -> rowCount()){
       $row = $stmt -> fetch();
       if(password_verify($pw, $row['password'])){
+        $sql = " UPDATE member SET last_login_dt = NOW() WHERE id = :id ";
+
+        $stmt = $this -> conn -> prepare($sql);
+        $stmt -> bindParam(':id' , $id);
+        $stmt -> execute();
+
         return true;
       } else {
         return false;

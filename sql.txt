@@ -27,3 +27,5 @@ SHOW tables;
 SELECT * FROM MEMBER;
 
 INSERT INTO member(`id`,`name`,`email`) VALUES ('user11', '유저1','user11@abc.com');
+
+ALTER TABLE `MEMBER` ADD COLUMN last_login_dt datetime AFTER create_at;
