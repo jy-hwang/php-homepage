@@ -86,4 +86,12 @@ public function email_format_check($m_email){
       return false;
     }
   }
+
+  public function logout(){
+    session_start();
+
+    session_destroy();
+
+    die('<script>self.location.href="../index.php";</script>');
+  }
 }
