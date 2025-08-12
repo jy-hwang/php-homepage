@@ -16,7 +16,7 @@ $addr2   = (isset($_POST['f_addr2'   ]) && $_POST['f_addr2'   ] != '') ? $_POST[
 $mode    = (isset($_POST['mode'      ]) && $_POST['mode'    ] != '') ? $_POST['mode'    ] : '';
 
 // 아이디 중복 확인
-if($_POST['mode'] == 'id_chk'){
+if($mode == 'id_chk'){
 
   if($id == ''){
     die(json_encode(['result' => 'empty_id']));
@@ -31,7 +31,7 @@ if($_POST['mode'] == 'id_chk'){
     die(json_encode(['result' => 'success']));
   }
   // 이메일 중복 확인
-} else if($_POST['mode'] == 'email_chk'){
+} else if($mode == 'email_chk'){
 
    if($email == ''){
     die(json_encode(['result' => 'empty_email']));
@@ -47,7 +47,7 @@ if($_POST['mode'] == 'id_chk'){
   } else {
     die(json_encode(['result' => 'success']));
   }
-} else if($_POST['mode'] == 'input'){
+} else if($mode == 'input'){
 
   // Profile Image 처리
   $photo = '';
