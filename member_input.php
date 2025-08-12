@@ -70,7 +70,7 @@ include 'inc_header.php';
     <div class="form-group mt-3 d-flex gap-2 justify-content-between">
       <div class="w-50">
         <label for="f_addr1" class="form-label">주소</label>
-        <input type="text" class="form-control" name="f_addr1" id="f_addr1" placeholder="">
+        <input type="text" class="form-control" name="f_addr1" id="f_addr1" placeholder="" readonly>
       </div>
 
       <div class="w-50">
