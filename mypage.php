@@ -32,22 +32,25 @@ include 'inc_header.php';
   <h1 class="text-center">회원정보 수정</h1>
   <form name="input_form" method="post" enctype="multipart/form-data" autocomplete="off" action="pg/member_process.php">
     <input type="hidden" name="mode" value="edit">
+    <input type="hidden" name="email_chk" value="0">
+    <input type="hidden" name="old_email" value="<?= $memArr['email'] ?>" >
     <div class="form-group d-flex gap-2 align-items-end">
       <div class="w-50">
         <label for="f_id" class="form-label">아이디</label>
         <input type="text" class="form-control" name="f_id" id="f_id" value="<?= $memArr['id'] ?>" readonly>
       </div>
-    </div>
-
-    <div class="form-group mt-3 d-flex gap-2 justify-content-between">
       <div class="w-50">
         <label for="f_name" class="form-label">이름</label>
         <input type="text" class="form-control" name="f_name" id="f_name"  value="<?= $memArr['name'] ?>">
       </div>
-      <div class="w-50">
+    </div>
+
+    <div class="d-flex mt-3 gap-2 align-items-end">
+      <div class="flex-grow-1">
         <label for="f_email" class="form-label">이메일</label>
-        <input type="email" class="form-control" name="f_email" id="f_email" value="<?= $memArr['email'] ?>" readonly>
+        <input type="email" class="form-control" name="f_email" id="f_email" value="<?= $memArr['email'] ?>">
       </div>
+      <button type="button" class="btn btn-secondary" id="btn_email_check">이메일 중복확인</button>
     </div>
 
     <div class="form-group mt-3 d-flex gap-2 justify-content-between">
@@ -63,7 +66,7 @@ include 'inc_header.php';
     </div>
 
     <div class="d-flex mt-3 gap-2 align-items-end">
-      <div class="">
+      <div>
         <label for="f_zipcode" class="form-label" >우편번호</label>
         <input type="text" class="form-control" name="f_zipcode" id="f_zipcode" minlength="5" maxlength="5" value="<?= $memArr['zipcode'] ?>" readonly>
       </div>
