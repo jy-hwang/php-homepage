@@ -105,4 +105,28 @@ public function email_format_check($m_email){
 
     die('<script>self.location.href="../index.php";</script>');
   }
+
+public function getInfo($id){
+    $sql =
+  " SELECT id
+         , name
+         , email
+         , zipcode
+         , addr1
+         , addr2
+         , photo
+         , create_at as createAt
+         , last_login_dt as lastLoginDt
+         , ip
+     FROM member
+    WHERE id = :id ";
+    
+    $stmt = $this -> conn -> prepare($sql);
+    $stmt -> bindParam(':id' , $id);
+    $stmt -> setFetchMode(PDO::FETCH_ASSOC);
+    $stmt -> execute();
+
+    return $stmt -> fetch();
+}
+
 }
