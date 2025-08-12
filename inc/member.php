@@ -23,9 +23,9 @@ class Member {
     return $stmt -> rowCount() ?  true : false;
   }
 
-public function email_format_check($m_email){
-  return filter_var($m_email, FILTER_VALIDATE_EMAIL);
-}
+  public function email_format_check($m_email){
+    return filter_var($m_email, FILTER_VALIDATE_EMAIL);
+  }
 
   // email 중복 검사용 멤버 함수, 메서드
   public function email_exists($m_email){
@@ -106,7 +106,7 @@ public function email_format_check($m_email){
     die('<script>self.location.href="../index.php";</script>');
   }
 
-public function getInfo($id){
+  public function getInfo($id){
     $sql =
   " SELECT id
          , name
@@ -118,15 +118,15 @@ public function getInfo($id){
          , create_at as createAt
          , last_login_dt as lastLoginDt
          , ip
-     FROM member
-    WHERE id = :id ";
-    
+      FROM member
+     WHERE id = :id ";
+      
     $stmt = $this -> conn -> prepare($sql);
     $stmt -> bindParam(':id' , $id);
     $stmt -> setFetchMode(PDO::FETCH_ASSOC);
     $stmt -> execute();
 
     return $stmt -> fetch();
-}
+  }
 
 }
