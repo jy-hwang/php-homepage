@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // 이메일을 변경했다면
-    if (frm.old_email.value != frm.email_chk.value && frm.email_chk.value === "0") {
+    if (frm.old_email.value != frm.f_email.value && frm.email_chk.value === "0") {
       alert("이메일 중복확인을 해주시기 바랍니다.");
       return false;
     }
@@ -103,6 +103,9 @@ document.addEventListener("DOMContentLoaded", () => {
       frm.f_addr2.focus();
       return false;
     }
+
+    f_password.value = await hashPassword(f_password.value);
+    f_password2.value = f_password.value;
 
     frm.submit();
   });

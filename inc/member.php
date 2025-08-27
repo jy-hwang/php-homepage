@@ -1,4 +1,3 @@
-
 <?php
 // Member  Class file
 
@@ -52,7 +51,7 @@ class Member {
                 , addr1, addr2, photo, create_at, ip)
     VALUES (:id, :name, :password, :email, :zipcode
                 , :addr1, :addr2, :photo, NOW(), :ip) ";
-    
+
     $stmt = $this -> conn -> prepare($sql);
     $stmt -> bindParam(':id'      , $marray['id']);
     $stmt -> bindParam(':name'    , $marray['name']);
@@ -128,5 +127,47 @@ class Member {
 
     return $stmt -> fetch();
   }
+
+public function edit($marry){
+    $sql =
+  " UPDATE member
+      SET name = :name
+        , email = :email
+        , zipcode = :zipcode
+        , addr1 = :addr1
+        , addr2 = :addr2 
+        , photo = :photo
+  " ;
+
+  $params = [
+      ':id' => $marry['id']
+    , ':name' => $marry['name']
+    , ':email' => $marry['email']
+    , ':zipcode' => $marry['zipcode']
+    , ':addr1' => $marry['addr1']
+    , ':addr2' => $marry['addr2']
+    , ':photo' => $marry['photo']
+  ];
+  
+  if($marry['password'] != ''){
+    // 단방향 암호화
+    $new_hash_password = password_hash($marry['password'], PASSWORD_DEFAULT);
+    
+ print_r($marry['password']);
+ print_r('<br>');
+ print_r($new_hash_password);
+ print_r('<br>');
+ $params[':password'] = $new_hash_password;
+ print_r("<script>
+ console.log($new_hash_password);
+ </script>");
+ print_r($params[':password']);
+    $sql .= " , password = :password  ";
+  }
+  $sql .= " WHERE id = :id  ";
+
+  $stmt = $this -> conn -> prepare($sql);
+  $stmt -> execute($params);
+}
 
 }
