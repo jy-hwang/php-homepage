@@ -41,14 +41,29 @@ if(isset($js_array)){
             <a href="company.php" class="nav-link <?= ($menu_code == 'company') ? 'active' : ''; ?>">회사소개</a>
           </li>
           <li class="nav-item">
-            <a href="mypage.php" class="nav-link <?= ($menu_code == 'mypage') ? 'active' : ''; ?>">My Page</a>
-          </li>
-          <li class="nav-item">
-            <a href="board.php" class="nav-link <?= ($menu_code == 'board') ? 'active' : ''; ?>">게시판</a>
-          </li>
-          <li class="nav-item">
-            <a href="./pg/logout.php" class="nav-link <?= ($menu_code == 'logout') ? 'active' : ''; ?>">로그아웃</a>
-          </li>
+        <?php if($ses_level == 10){
+        // 관리자 인경우
+        ?>
+        <li class="nav-item">
+          <a href="./admin/" class="nav-link <?= ($menu_code == 'admin') ? 'active' : ''; ?>">Admin</a>
+        </li>
+        <?php
+        } else {
+        // 일반 사용자인 경우
+        ?>
+        <li class="nav-item">
+          <a href="mypage.php" class="nav-link <?= ($menu_code == 'mypage') ? 'active' : ''; ?>">My Page</a>
+        </li>
+
+        <?php
+        }
+        ?>
+        <li class="nav-item">
+          <a href="board.php" class="nav-link <?= ($menu_code == 'board') ? 'active' : ''; ?>">게시판</a>
+        </li>
+        <li class="nav-item">
+          <a href="./pg/logout.php" class="nav-link <?= ($menu_code == 'logout') ? 'active' : ''; ?>">로그아웃</a>
+        </li>
 
 <?php
 } else {

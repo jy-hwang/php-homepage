@@ -117,6 +117,7 @@ class Member {
          , create_at as createAt
          , last_login_dt as lastLoginDt
          , ip
+         , level
       FROM member
      WHERE id = :id ";
       
